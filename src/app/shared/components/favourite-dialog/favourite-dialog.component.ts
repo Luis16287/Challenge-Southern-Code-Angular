@@ -52,9 +52,10 @@ export class FavouriteDialogComponent implements OnInit {
     }
 
     private openSnackBar(message) {
-        this._snackBar.open(message, 'Splash', {
+        this._snackBar.open(message, null, {
           horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition,
+          duration: 2000
         });
       }
 }
