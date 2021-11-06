@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.app-button{
+    display: table;
+    padding: 5px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    border-radius: 8px;
+    background-image: linear-gradient(to right, #db580b 0%, #ff883f 100%);
+    cursor: pointer;
+    text-align: center;
+    user-select: none;
+    outline: none;
+    border: none;
+    appearance: none;
+    &.large{
+        padding: 10px 30px;
+    }
+    &.disabled{
+        background-image: none;
+        background-color: #ffffff61;
+        pointer-events: none;
+    }
+    &.outlined{
+        background: none;
+        border: solid 1px #db580b;
+        color: #db580b;
+    }
+}

@@ -1,0 +1,46 @@
+<mat-accordion class="example-headers-align" multi>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Fotos de {{title}}
+      </mat-panel-title>
+      <mat-panel-description *ngIf="description">
+        {{description}}
+        <!-- <mat-icon>map</mat-icon> -->
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <form [formGroup]="accordionForm" autocomplete="off">
+      <div fxLayout="row" fxLayoutAlign="space-between center">
+        <mat-form-field appearance="outline">
+          <mat-label>Date</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="earthDate" (focus)="picker.open()" readonly>
+        </mat-form-field>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-form-field appearance="outline">
+          <input matInput name="Clave" formControlName="solDate" placeholder="Sol" required>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Cámara</mat-label>
+          <mat-select formControlName="cam">
+            <ng-container *ngFor="let cam of camOptions">
+              <mat-option [value]="cam">{{ cam }}</mat-option>
+            </ng-container>
+          </mat-select>
+        </mat-form-field>
+        <button class="app-button accordion-button" (click)="search()"
+          [ngClass]="{'disabled': disableSearch}">Buscar</button>
+        <button class="app-button outlined accordion-button" [ngClass]="{'disabled': disableSearch}"
+          (click)="openFavouriteModal()">+Favorito</button>
+        <button *ngIf="favourites" class="accordion-button" mat-button [matMenuTriggerFor]="menu">Cargar</button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item *ngFor="let f of favourites" (click)="filterByFavourite(f)">
+            <mat-icon>star</mat-icon>
+            <span>{{f.name}} {{f.creationDate | date: 'dd/MM/yyyy'}} </span>
+          </button>
+        </mat-menu>
+      </div>
+    </form>
+    <ng-content></ng-content>
+  </mat-expansion-panel>
+</mat-accordion>

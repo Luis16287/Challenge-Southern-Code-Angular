@@ -1,0 +1,29 @@
+<div class="dialog-content-wrapper dialog-container">
+    <mat-toolbar matDialogTitle class="mat-accent" style="margin: 0 !important;">
+        <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
+            <h2 mat-dialog-title class="title dialog-title">
+                Guardar busqueda como favorita
+            </h2>
+            <button mat-icon-button (click)="dialogRef.close()" aria-label="Close dialog">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+    <div mat-dialog-content style="padding: 0 !important; margin: 0 !important; overflow: hidden !important;">
+        <form [formGroup]="favouriteForm" autocomplete="off">
+            <div fxLayout="row" fxLayoutAlign="space-between center">
+                <mat-form-field appearance="outline">
+                    <input matInput name="Nombre" formControlName="name" placeholder="Nombre">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <input matInput name="Observacion" formControlName="observation" placeholder="Observación">
+                </mat-form-field>
+            </div>
+        </form>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <button class="app-button outlined" (click)="closeDialog()">Cancelar</button>
+            <button class="app-button" (click)="saveFovourite()" [ngClass]="{'disabled': this.favouriteForm.invalid}">Guardar</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+.title {
+    font-weight: bolder;
+    color: #fff;
+    font-size: 1.5vw;
+}
+
+::ng-deep .mat-toolbar {
+    background: #424242 !important;
+    color: #fff !important;
+}

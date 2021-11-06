@@ -1,0 +1,13 @@
+.title {
+    font-weight: bolder;
+    color: #fff;
+    font-size: 1.5vw;
+}
+.image-container {
+    max-width: 1024px;
+}
+
+::ng-deep .mat-toolbar {
+    background: #424242 !important;
+    color: #fff !important;
+}

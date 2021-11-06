@@ -1,0 +1,17 @@
+.container {
+    padding: 16px !important;
+    .title {
+        font-weight: bolder;
+        color: #fff;
+        font-size: 1.75vw;
+    }
+    .mb-16 {
+        margin-bottom: 16px;
+    }
+    .searchInput {
+        width: 90% !important;
+    }
+    .add-button {
+        margin-left: 24px !important;
+    }
+}

@@ -1,0 +1,24 @@
+.container {
+    //width: 100%;
+    border: solid 1px black;
+    padding: 10px;
+    .photoGrid {
+        max-height: 35vh;
+        overflow-y: auto;
+        width: 100% !important;
+        margin-bottom: 1%;
+        .photoContainer {
+            width: 25% !important;
+            img {
+                width: 100%;
+                cursor: pointer;
+            }
+        }
+    }
+    .disabled {
+        background-color: grey;
+        color: white;
+        cursor: none;
+        pointer-events: none;
+    }
+}

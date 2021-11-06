@@ -1,0 +1,30 @@
+<div class="container">
+    <ng-container *ngIf="data.photos.length > 0; else noDataFound">
+        <ngx-masonry [options]="masonryOptions" class="photoGrid" [ordered]="true" (itemsLoaded)="itemsLoaded()">
+            <div ngxMasonryItem *ngFor="let image of data.photos" class="photoContainer">
+                <img [src]="image.img_src" width="100%" (click)="openPhoto(image)"
+                    title="{{image.camera.full_name}} - Rover {{image.rover.name}}">
+            </div>
+        </ngx-masonry>
+
+        <div fxLayout="column" fxLayoutAlign="center center">
+            <span style="margin-bottom: 5px;">{{data.photos.length}} imágenes</span>
+            <button class="app-button" [ngClass]="{'disabled': !data.hasMorePhotos}" (click)="showMoreImages()">
+                {{ data.hasMorePhotos ? 'Ver más' : 'No hay más imágenes' }}
+            </button>
+        </div>
+    </ng-container>
+
+    <ng-template #noDataFound>
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <mat-card>
+                <mat-card-content>
+                    <div fxLayout="column" fxLayoutAlign="center center">
+                        <img height="250" src="assets/no-data.jpg" alt="No se encontraron coincidencias">
+                        <h2 class="title">No se encontraron coincidencias para {{roverType}}.</h2>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </ng-template>
+</div>
