@@ -16,7 +16,7 @@
 
     <div class="mb-16" *blockUI="'oportunity-grid'">
         <app-accordion title="{{roverNames.OPPORTUNITY}}" [data]="opportunityManifest"
-            (camSelected)="camFilter($event, roverNames.OPPORTUNITY)">
+            (camSelected)="camFilter($event, roverNames.OPPORTUNITY)" (onSearch)=filter($event)>
             <div fxFlexFill fxlayoutalign.gt-xs="space-between center">
                 <grid *ngIf="filteredOpportunityData" [roverType]="roverNames.OPPORTUNITY"
                     [data]="filteredOpportunityData" (loadMore)="loadMore($event)" (loadedItems)="loadedItems($event)">
@@ -26,7 +26,7 @@
     </div>
 
     <div class="mb-16" *blockUI="'perseverance-grid'" [data]="perseveranceManifest"
-        (camSelected)="camFilter($event, roverNames.PERSEVERANCE)">
+        (camSelected)="camFilter($event, roverNames.PERSEVERANCE)" (onSearch)=filter($event)>
         <app-accordion title="{{roverNames.PERSEVERANCE}}">
             <div fxFlexFill fxlayoutalign.gt-xs="space-between center">
                 <grid *ngIf="filteredPerseveranceData" [roverType]="roverNames.PERSEVERANCE"
@@ -38,7 +38,7 @@
 
     <div class="mb-16" *blockUI="'spirit-grid'">
         <app-accordion title="{{roverNames.SPIRIT}}" [data]="spiritManifest"
-            (camSelected)="camFilter($event, roverNames.SPIRIT)">
+            (camSelected)="camFilter($event, roverNames.SPIRIT)" (onSearch)=filter($event)>
             <div fxFlexFill fxlayoutalign.gt-xs="space-between center">
                 <grid *ngIf="filteredSpiritData" [roverType]="roverNames.SPIRIT" [data]="filteredSpiritData"
                     (loadMore)="loadMore($event)" (loadedItems)="loadedItems($event)">
