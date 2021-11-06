@@ -16,6 +16,7 @@ import { FavouriteDialogComponent } from '../favourite-dialog/favourite-dialog.c
 export class AppAccordionComponent implements OnInit, OnChanges {
   public accordionForm: FormGroup;
   public favourites: Array<Favourite>;
+  public maxDate = new Date();
   @Input() isOpen = true;
   @Input() title;
   @Input() description;
