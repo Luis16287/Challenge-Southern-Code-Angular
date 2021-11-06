@@ -49,10 +49,10 @@ export class PhotoGalleryComponent implements OnInit {
     private getPhotos(): void {
         this.blockUI.start('Cargando...');
         zip(
-            this.nasaService.getMarsRoverPhotos(this.roverNames.CURIOSITY.toLocaleLowerCase(), 1, FILTEROPTIONS.TODAS, new Date(2015, 6, 3)),
-            this.nasaService.getMarsRoverPhotos(this.roverNames.OPPORTUNITY.toLocaleLowerCase(), 1, FILTEROPTIONS.TODAS, new Date(2015, 6, 3)),
-            this.nasaService.getMarsRoverPhotos(this.roverNames.PERSEVERANCE.toLocaleLowerCase(), 1, FILTEROPTIONS.TODAS, new Date(2015, 6, 3)),
-            this.nasaService.getMarsRoverPhotos(this.roverNames.SPIRIT.toLocaleLowerCase(), 1, FILTEROPTIONS.TODAS, new Date(2015, 6, 3))
+            this.nasaService.getMarsRoverPhotos(this.roverNames.CURIOSITY.toLocaleLowerCase(), 1, FILTEROPTIONS.TODAS),
+            this.nasaService.getMarsRoverPhotos(this.roverNames.OPPORTUNITY.toLocaleLowerCase(), 1, FILTEROPTIONS.TODAS),
+            this.nasaService.getMarsRoverPhotos(this.roverNames.PERSEVERANCE.toLocaleLowerCase(), 1, FILTEROPTIONS.TODAS),
+            this.nasaService.getMarsRoverPhotos(this.roverNames.SPIRIT.toLocaleLowerCase(), 1, FILTEROPTIONS.TODAS)
         )
             .pipe(
                 map((res) => {
@@ -84,7 +84,7 @@ export class PhotoGalleryComponent implements OnInit {
     public loadMore(evt: { type: string, lastPage: number }): void {
         this.blockGrid(evt.type, true);
         const cam = this.getSelectedCam(evt.type);
-        this.nasaService.getMarsRoverPhotos(evt.type.toLocaleLowerCase(), evt.lastPage + 1, cam, new Date(2015, 6, 3)).subscribe(res => {
+        this.nasaService.getMarsRoverPhotos(evt.type.toLocaleLowerCase(), evt.lastPage + 1, cam).subscribe(res => {
             switch (evt.type) {
                 case ROVERNAMES.CURIOSITY:
                     this.curiosityData.photos = [...this.curiosityData.photos, ...res.photos];
