@@ -41,7 +41,6 @@ const appRoutes: Routes = [
     FlexLayoutModule,
     BlockUIModule.forRoot({
       template: BlockTemplateComponent,
-      // delayStart: 1000,
       delayStop: 1000
     }),
   ],
